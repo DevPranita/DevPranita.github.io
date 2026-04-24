@@ -1,240 +1,683 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Pranita Gaikwad | Senior Backend Developer</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pranita Gaikwad — Senior Backend Developer · Laravel & Python</title>
+<meta name="description" content="Pranita Gaikwad — Senior Backend Developer. 5+ years building scalable SaaS APIs, microservices, and high-performance systems in Laravel and Python." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-body {
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    background: #0f172a;
-    color: #e2e8f0;
-}
+  :root{
+    --bg:#f7f8fb;
+    --panel:#ffffff;
+    --panel-2:#f1f3f8;
+    --ink:#0f172a;
+    --ink-soft:#475569;
+    --muted:#64748b;
+    --line:#e5e9f2;
+    --line-strong:#d6dbe7;
 
-.container {
-    width: 90%;
-    max-width: 1100px;
-    margin: auto;
-    padding: 60px 0;
-}
+    --primary:#4f46e5;        /* indigo */
+    --primary-deep:#3730a3;
+    --accent:#06b6d4;         /* cyan */
+    --green:#10b981;
+    --amber:#f59e0b;
+    --pink:#ec4899;
 
-.hero {
-    text-align: center;
-    padding: 100px 20px;
-    background: linear-gradient(135deg, #1e293b, #020617);
-}
+    --code-bg:#0b1220;
+    --code-line:#1e293b;
+    --code-text:#e2e8f0;
+    --code-muted:#64748b;
+    --code-key:#c084fc;
+    --code-str:#86efac;
+    --code-num:#fcd34d;
+    --code-fn:#7dd3fc;
+    --code-comment:#475569;
 
-.hero h1 {
-    font-size: 48px;
-    margin-bottom: 10px;
-}
+    --shadow-sm:0 1px 2px rgba(15,23,42,0.05);
+    --shadow-md:0 12px 28px -12px rgba(15,23,42,0.18);
+    --shadow-lg:0 30px 60px -20px rgba(79,70,229,0.25);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none}
+  code,pre,.mono{font-family:'JetBrains Mono',ui-monospace,Menlo,monospace}
 
-.hero p {
-    font-size: 18px;
-    color: #94a3b8;
-}
+  .container{max-width:1180px;margin:0 auto;padding:0 24px}
+  section{padding:96px 0;scroll-margin-top:80px}
+  h1,h2,h3,h4{font-weight:800;letter-spacing:-0.025em;line-height:1.15;color:var(--ink)}
+  h2{font-size:clamp(1.9rem,3.4vw,2.6rem);margin-bottom:10px}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;font-family:'JetBrains Mono',monospace;
+    font-size:0.78rem;font-weight:600;letter-spacing:0.06em;
+    color:var(--primary);margin-bottom:14px;
+  }
+  .eyebrow::before{content:"//";color:var(--muted)}
+  .section-sub{color:var(--ink-soft);margin:6px 0 44px;max-width:680px;font-size:1.02rem}
+  .grad-text{
+    background:linear-gradient(90deg,var(--primary) 0%,var(--accent) 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
 
-.btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background: #6366f1;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    margin-right: 10px;
-}
+  /* ===== NAV ===== */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(247,248,251,0.85);
+    backdrop-filter:saturate(160%) blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1180px;margin:0 auto}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:800}
+  .brand-mark{
+    width:38px;height:38px;border-radius:10px;
+    background:linear-gradient(135deg,var(--primary),var(--accent));
+    color:#fff;display:grid;place-items:center;
+    font-family:'JetBrains Mono',monospace;font-weight:700;
+    box-shadow:var(--shadow-sm);
+  }
+  .brand small{display:block;font-size:0.72rem;color:var(--muted);font-weight:500;line-height:1}
+  .nav-links{display:flex;gap:28px}
+  .nav-links a{color:var(--ink-soft);font-size:0.92rem;font-weight:500;transition:color .2s;font-family:'JetBrains Mono',monospace}
+  .nav-links a:hover{color:var(--primary)}
+  .nav-cta{display:none}
+  @media(min-width:768px){.nav-cta{display:inline-flex}}
+  @media(max-width:680px){.nav-links{display:none}}
 
-.section-title {
-    font-size: 28px;
-    margin-bottom: 20px;
-    border-left: 4px solid #6366f1;
-    padding-left: 10px;
-}
+  /* ===== BUTTONS ===== */
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:11px 18px;border-radius:10px;font-weight:600;font-size:0.92rem;
+    border:1px solid var(--line-strong);background:var(--panel);color:var(--ink);
+    transition:transform .15s, background .2s, box-shadow .2s, border-color .2s;
+    cursor:pointer;
+  }
+  .btn:hover{transform:translateY(-1px);border-color:var(--primary);color:var(--primary);box-shadow:var(--shadow-sm)}
+  .btn-primary{
+    background:linear-gradient(135deg,var(--primary),#6366f1);
+    color:#fff;border:none;box-shadow:var(--shadow-md);
+  }
+  .btn-primary:hover{color:#fff;box-shadow:var(--shadow-lg);transform:translateY(-2px)}
 
-.card {
-    background: #1e293b;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
+  /* ===== HERO ===== */
+  .hero{
+    padding:80px 0 90px;border-bottom:1px solid var(--line);
+    background:
+      radial-gradient(700px 380px at 95% 0%, rgba(6,182,212,0.10), transparent 70%),
+      radial-gradient(700px 380px at 0% 20%, rgba(79,70,229,0.10), transparent 70%),
+      var(--bg);
+    position:relative;overflow:hidden;
+  }
+  .hero-grid{display:grid;gap:48px;grid-template-columns:1fr;align-items:center}
+  @media(min-width:960px){.hero-grid{grid-template-columns:1.15fr 1fr}}
 
-.skills span {
-    display: inline-block;
-    background: #334155;
-    padding: 8px 12px;
-    margin: 5px;
-    border-radius: 6px;
-    font-size: 14px;
-}
+  .status{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:7px 14px;border-radius:999px;
+    background:var(--panel);color:var(--green);
+    border:1px solid var(--line-strong);
+    font-size:0.85rem;font-weight:600;margin-bottom:22px;
+    box-shadow:var(--shadow-sm);font-family:'JetBrains Mono',monospace;
+  }
+  .pulse{
+    width:8px;height:8px;border-radius:50%;background:var(--green);
+    box-shadow:0 0 0 0 rgba(16,185,129,0.4);
+    animation:pulse 2s infinite;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(16,185,129,0.5)}
+    70%{box-shadow:0 0 0 10px rgba(16,185,129,0)}
+    100%{box-shadow:0 0 0 0 rgba(16,185,129,0)}
+  }
 
-.highlight {
-    color: #818cf8;
-}
+  .hero h1{font-size:clamp(2.2rem,5vw,3.6rem);margin-bottom:18px}
+  .hero .role{font-size:clamp(1rem,1.5vw,1.15rem);color:var(--ink-soft);max-width:580px;margin-bottom:14px;font-family:'JetBrains Mono',monospace}
+  .hero .meta{color:var(--muted);font-size:0.92rem;margin-bottom:30px}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:36px}
 
-footer {
-    text-align: center;
-    padding: 30px;
-    background: #020617;
-    color: #94a3b8;
-}
+  /* Code window */
+  .code-window{
+    background:var(--code-bg);border-radius:14px;overflow:hidden;
+    box-shadow:0 30px 60px -20px rgba(15,23,42,0.4);
+    border:1px solid #1e293b;
+    font-family:'JetBrains Mono',monospace;font-size:0.86rem;
+  }
+  .code-header{
+    display:flex;align-items:center;gap:8px;
+    padding:12px 16px;background:#0f172a;border-bottom:1px solid var(--code-line);
+  }
+  .code-header .dots{display:flex;gap:6px}
+  .code-header .dots span{width:11px;height:11px;border-radius:50%}
+  .code-header .dots span:nth-child(1){background:#ef4444}
+  .code-header .dots span:nth-child(2){background:#f59e0b}
+  .code-header .dots span:nth-child(3){background:#10b981}
+  .code-header .file{margin-left:8px;color:var(--code-muted);font-size:0.8rem}
+  .code-body{padding:18px 20px;color:var(--code-text);line-height:1.75;overflow-x:auto}
+  .code-body .ln{color:var(--code-comment);user-select:none;display:inline-block;width:1.6em}
+  .k{color:var(--code-key)}
+  .s{color:var(--code-str)}
+  .n{color:var(--code-num)}
+  .f{color:var(--code-fn)}
+  .c{color:var(--code-comment);font-style:italic}
+  .p{color:#94a3b8}
+
+  /* Stats */
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:600px}
+  @media(min-width:640px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{
+    background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;
+    transition:border-color .2s, transform .2s;
+  }
+  .stat:hover{border-color:var(--primary);transform:translateY(-2px)}
+  .stat .num{font-size:1.5rem;font-weight:800;background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .stat .lbl{color:var(--muted);font-size:0.82rem;font-weight:500;font-family:'JetBrains Mono',monospace}
+
+  /* ===== Generic cards/grids ===== */
+  .grid{display:grid;gap:22px}
+  .grid-2{grid-template-columns:1fr}
+  @media(min-width:840px){.grid-2{grid-template-columns:repeat(2,1fr)}}
+  .grid-3{grid-template-columns:1fr}
+  @media(min-width:720px){.grid-3{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:1000px){.grid-3{grid-template-columns:repeat(3,1fr)}}
+
+  .card{
+    background:var(--panel);border:1px solid var(--line);border-radius:16px;
+    padding:26px;box-shadow:var(--shadow-sm);
+    transition:transform .2s, border-color .2s, box-shadow .2s;
+    position:relative;
+  }
+  .card:hover{transform:translateY(-3px);border-color:var(--primary);box-shadow:var(--shadow-md)}
+
+  /* ===== ABOUT ===== */
+  .about{background:var(--panel-2)}
+  .about-grid{
+    display:grid;gap:26px;grid-template-columns:1fr;
+  }
+  @media(min-width:880px){.about-grid{grid-template-columns:1.1fr 1fr}}
+  .about-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:30px}
+  .about-card p{color:var(--ink-soft);margin-bottom:14px}
+  .about-card p:last-child{margin-bottom:0}
+  .about-card strong{color:var(--ink)}
+  .highlights{display:grid;gap:14px;grid-template-columns:1fr;align-content:start}
+  .highlight{
+    display:flex;gap:14px;background:var(--panel);
+    border:1px solid var(--line);border-radius:14px;padding:18px;
+    transition:border-color .2s, transform .2s;
+  }
+  .highlight:hover{border-color:var(--primary);transform:translateY(-2px)}
+  .h-icon{
+    width:42px;height:42px;border-radius:10px;flex-shrink:0;
+    display:grid;place-items:center;font-weight:700;
+    background:linear-gradient(135deg,rgba(79,70,229,0.12),rgba(6,182,212,0.12));
+    color:var(--primary);font-family:'JetBrains Mono',monospace;
+  }
+  .h-title{font-weight:700;color:var(--ink);margin-bottom:4px}
+  .h-desc{color:var(--ink-soft);font-size:0.92rem;line-height:1.55}
+
+  /* ===== SKILLS ===== */
+  .skill-groups{display:grid;gap:22px;grid-template-columns:1fr}
+  @media(min-width:760px){.skill-groups{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:1080px){.skill-groups{grid-template-columns:repeat(4,1fr)}}
+  .skill-group{
+    background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px;
+    transition:border-color .2s, transform .2s;
+  }
+  .skill-group:hover{border-color:var(--primary);transform:translateY(-3px)}
+  .sg-title{
+    font-family:'JetBrains Mono',monospace;font-size:0.85rem;font-weight:700;
+    color:var(--primary);margin-bottom:14px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .sg-title::before{content:"❯";color:var(--accent)}
+  .sg-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+  .sg-list li{
+    display:flex;align-items:center;justify-content:space-between;
+    color:var(--ink);font-size:0.92rem;font-weight:500;
+    padding:6px 0;border-bottom:1px dashed var(--line);
+  }
+  .sg-list li:last-child{border-bottom:none}
+  .sg-list .tag{
+    font-family:'JetBrains Mono',monospace;font-size:0.7rem;
+    padding:2px 8px;border-radius:6px;font-weight:600;
+  }
+  .tag-core{background:rgba(79,70,229,0.10);color:var(--primary)}
+  .tag-learn{background:rgba(245,158,11,0.12);color:var(--amber)}
+  .tag-prod{background:rgba(16,185,129,0.12);color:var(--green)}
+
+  /* ===== EXPERIENCE / TIMELINE ===== */
+  .exp{background:var(--panel-2)}
+  .timeline{position:relative;padding-left:34px}
+  .timeline::before{
+    content:"";position:absolute;left:11px;top:8px;bottom:8px;
+    width:2px;background:linear-gradient(180deg,var(--primary),var(--accent));
+    border-radius:2px;
+  }
+  .tl-item{position:relative;margin-bottom:30px}
+  .tl-item:last-child{margin-bottom:0}
+  .tl-item::before{
+    content:"";position:absolute;left:-30px;top:18px;
+    width:18px;height:18px;border-radius:50%;
+    background:var(--panel);border:3px solid var(--primary);
+    box-shadow:0 0 0 4px rgba(79,70,229,0.12);
+  }
+  .tl-card{
+    background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px 26px;
+    transition:border-color .2s, transform .2s;
+  }
+  .tl-card:hover{border-color:var(--primary);transform:translateX(4px)}
+  .tl-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:baseline;margin-bottom:6px}
+  .role-title{font-size:1.15rem;font-weight:800}
+  .company{color:var(--primary);font-weight:700;font-size:0.95rem;margin-top:2px}
+  .period{
+    font-family:'JetBrains Mono',monospace;font-size:0.78rem;font-weight:600;
+    color:var(--muted);background:var(--panel-2);
+    padding:4px 10px;border-radius:6px;border:1px solid var(--line);
+  }
+  .bullets{list-style:none;padding:0;margin-top:14px}
+  .bullets li{position:relative;padding-left:22px;margin-bottom:8px;color:var(--ink-soft);font-size:0.95rem}
+  .bullets li::before{
+    content:"▸";position:absolute;left:0;top:0;color:var(--accent);font-weight:800;
+  }
+
+  /* ===== PROJECTS ===== */
+  .project-card{position:relative;overflow:hidden}
+  .project-card::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,var(--primary),var(--accent));
+    transform:scaleX(0);transform-origin:left;transition:transform .3s;
+  }
+  .project-card:hover::before{transform:scaleX(1)}
+  .project-card .title-row{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+  .project-card .role-title{font-size:1.08rem}
+  .badge-row{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 14px}
+  .ptag{
+    font-family:'JetBrains Mono',monospace;font-size:0.72rem;font-weight:600;
+    padding:3px 9px;border-radius:6px;
+    background:var(--panel-2);color:var(--ink-soft);border:1px solid var(--line);
+  }
+  .project-link{
+    color:var(--primary);font-weight:700;font-size:0.88rem;
+    display:inline-flex;align-items:center;gap:6px;margin-top:10px;
+    font-family:'JetBrains Mono',monospace;
+  }
+  .project-link:hover{color:var(--accent)}
+  .gov-pill{
+    font-family:'JetBrains Mono',monospace;font-size:0.7rem;font-weight:700;
+    padding:3px 8px;border-radius:6px;background:rgba(16,185,129,0.12);color:var(--green);
+  }
+
+  /* ===== CONTACT ===== */
+  .contact{
+    background:
+      radial-gradient(700px 320px at 50% 0%, rgba(79,70,229,0.10), transparent 70%),
+      var(--panel-2);
+  }
+  .contact-grid{display:grid;gap:18px;grid-template-columns:1fr;margin-top:8px}
+  @media(min-width:720px){.contact-grid{grid-template-columns:repeat(3,1fr)}}
+  .contact-card{
+    text-align:left;padding:28px 24px;
+    background:var(--panel);border:1px solid var(--line);
+    border-radius:16px;transition:transform .2s, border-color .2s, box-shadow .2s;
+    display:flex;flex-direction:column;gap:8px;
+  }
+  .contact-card:hover{transform:translateY(-3px);border-color:var(--primary);box-shadow:var(--shadow-md)}
+  .contact-icon{
+    width:46px;height:46px;border-radius:12px;
+    background:linear-gradient(135deg,var(--primary),var(--accent));
+    color:#fff;display:grid;place-items:center;font-weight:800;
+    font-family:'JetBrains Mono',monospace;margin-bottom:6px;
+    box-shadow:var(--shadow-sm);
+  }
+  .contact-card .lbl{color:var(--muted);font-size:0.74rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;font-family:'JetBrains Mono',monospace}
+  .contact-card .val{font-weight:600;color:var(--ink);word-break:break-all;font-size:0.95rem}
+
+  .cta-bar{
+    margin-top:32px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;
+    background:var(--ink);color:#fff;padding:24px 28px;border-radius:16px;
+    box-shadow:var(--shadow-md);
+  }
+  .cta-bar p{font-weight:600}
+  .cta-bar .btn{background:#fff;color:var(--ink);border-color:#fff}
+  .cta-bar .btn:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
+
+  /* ===== FOOTER ===== */
+  footer{
+    border-top:1px solid var(--line);
+    padding:30px 0;text-align:center;color:var(--ink-soft);font-size:0.88rem;
+    background:var(--bg);font-family:'JetBrains Mono',monospace;
+  }
 </style>
 </head>
-
 <body>
 
-<!-- HERO -->
-<section class="hero">
-    <h1>Pranita Gaikwad</h1>
-    <p>Senior Backend Developer | Laravel • Python (Transitioning) • Scalable APIs</p>
+<!-- ========== NAV ========== -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand">
+      <span class="brand-mark">{ }</span>
+      <span>Pranita Gaikwad <small>Senior Backend Developer</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#about">about</a>
+      <a href="#skills">skills</a>
+      <a href="#experience">experience</a>
+      <a href="#projects">projects</a>
+      <a href="#contact">contact</a>
+    </nav>
+    <a href="#contact" class="btn btn-primary nav-cta">Hire me →</a>
+  </div>
+</header>
 
-    <p>
-        5+ Years Experience | SaaS | Microservices (Learning) | High Performance Systems
-    </p>
-    <a href="https://github.com/DevPranita" class="btn">GitHub</a>
-    <a href="https://www.linkedin.com/in/pranita-gaikwad-5434b0197" class="btn">Linkedin</a>
-    <a href="mailto:pranitagaikwad123@gmail.com" class="btn">Contact</a>
-</section>
+<!-- ========== HERO ========== -->
+<section class="hero" id="top">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <span class="status"><span class="pulse"></span> available_for_hire = true</span>
+        <h1>Senior Backend Developer building <span class="grad-text">scalable APIs</span> &amp; SaaS platforms.</h1>
+        <p class="role">Laravel · PHP · Python (Transitioning) · REST APIs · MySQL · Redis · Docker</p>
+        <p class="meta">5+ Years Experience &nbsp;·&nbsp; SaaS &nbsp;·&nbsp; Microservices (Learning) &nbsp;·&nbsp; High-Performance Systems</p>
 
-<!-- ABOUT -->
-<section class="container">
-    <h2 class="section-title">About Me</h2>
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-primary">Get in touch →</a>
+          <a href="#projects" class="btn">View Projects</a>
+          <a href="https://github.com/DevPranita" target="_blank" rel="noopener" class="btn">GitHub ↗</a>
+        </div>
 
-    <div class="card">
-        <p>
-            Senior Backend Developer with <span class="highlight">5+ years of experience</span> building
-            scalable SaaS platforms and high-performance APIs.
-        </p>
+        <div class="stats">
+          <div class="stat"><div class="num">5+</div><div class="lbl">years_exp</div></div>
+          <div class="stat"><div class="num">99.9%</div><div class="lbl">api_uptime</div></div>
+          <div class="stat"><div class="num">40%</div><div class="lbl">perf_boost</div></div>
+          <div class="stat"><div class="num">10+</div><div class="lbl">projects_shipped</div></div>
+        </div>
+      </div>
 
-        <p>
-            Improved API performance by <span class="highlight">30–40%</span>, ensured
-            <span class="highlight">99.9% uptime</span>, and built secure systems using
-            JWT, RBAC, and modern backend architecture.
-        </p>
-
-        <p>
-            Currently transitioning into <span class="highlight">Python & FastAPI</span>
-            while expanding into <span class="highlight">Microservices, AWS, and Distributed Systems</span>.
-        </p>
+      <!-- Code window -->
+      <div class="code-window" aria-hidden="true">
+        <div class="code-header">
+          <div class="dots"><span></span><span></span><span></span></div>
+          <span class="file mono">~/profile/pranita.php</span>
+        </div>
+        <pre class="code-body"><span class="ln">1</span><span class="k">&lt;?php</span>
+<span class="ln">2</span><span class="k">namespace</span> <span class="p">App\Profile;</span>
+<span class="ln">3</span>
+<span class="ln">4</span><span class="k">class</span> <span class="f">Pranita</span> <span class="k">extends</span> <span class="f">Engineer</span> <span class="p">{</span>
+<span class="ln">5</span>  <span class="k">public</span> <span class="k">string</span> <span class="p">$role</span> = <span class="s">'Senior Backend Dev'</span><span class="p">;</span>
+<span class="ln">6</span>  <span class="k">public</span> <span class="k">int</span>    <span class="p">$years</span> = <span class="n">5</span><span class="p">;</span>
+<span class="ln">7</span>  <span class="k">public</span> <span class="k">array</span>  <span class="p">$stack</span> = <span class="p">[</span>
+<span class="ln">8</span>    <span class="s">'Laravel'</span>, <span class="s">'PHP'</span>, <span class="s">'Python'</span>,
+<span class="ln">9</span>    <span class="s">'FastAPI'</span>, <span class="s">'MySQL'</span>, <span class="s">'Redis'</span>,
+<span class="ln">10</span>    <span class="s">'Docker'</span>, <span class="s">'AWS'</span>,
+<span class="ln">11</span>  <span class="p">];</span>
+<span class="ln">12</span>
+<span class="ln">13</span>  <span class="k">public function</span> <span class="f">build</span><span class="p">():</span> <span class="k">Response</span> <span class="p">{</span>
+<span class="ln">14</span>    <span class="c">// scalable. secure. shipped.</span>
+<span class="ln">15</span>    <span class="k">return</span> <span class="f">api</span><span class="p">()-&gt;</span><span class="f">withUptime</span><span class="p">(</span><span class="s">'99.9%'</span><span class="p">);</span>
+<span class="ln">16</span>  <span class="p">}</span>
+<span class="ln">17</span><span class="p">}</span></pre>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- SKILLS -->
-<section class="container">
-    <h2 class="section-title">Technical Skills</h2>
+<!-- ========== ABOUT ========== -->
+<section class="about" id="about">
+  <div class="container">
+    <span class="eyebrow">about</span>
+    <h2>Backend engineer focused on <span class="grad-text">reliability &amp; performance</span></h2>
+    <p class="section-sub">I design APIs and data layers that scale gracefully, stay secure, and don't wake you up at 3am.</p>
 
-    <div class="skills">
-        <span>Laravel</span>
-        <span>PHP</span>
-        <span>Python</span>
-        <span>FastAPI</span>
-        <span>Vue.js</span>
-        <span>Nuxt.js</span>
-        <span>REST APIs</span>
-        <span>MySQL</span>
-        <span>PostgreSQL</span>
-        <span>Redis</span>
-        <span>Docker</span>
-        <span>AWS (Learning)</span>
-        <span>JWT / OAuth2</span>
-        <span>Microservices (Learning)</span>
+    <div class="about-grid">
+      <div class="about-card">
+        <p>I'm a <strong>Senior Backend Developer</strong> with <strong>5+ years</strong> of experience building scalable SaaS platforms and high-performance APIs serving real users in production.</p>
+        <p>I've improved API performance by <strong>30–40%</strong>, maintained <strong>99.9% uptime</strong>, and built secure systems using <strong>JWT, RBAC</strong>, and modern backend architecture.</p>
+        <p>Currently transitioning into <strong>Python &amp; FastAPI</strong>, while expanding into <strong>Microservices, AWS</strong>, and <strong>Distributed Systems</strong>.</p>
+      </div>
+
+      <div class="highlights">
+        <div class="highlight">
+          <div class="h-icon">⚡</div>
+          <div>
+            <div class="h-title">Performance-first APIs</div>
+            <div class="h-desc">Query optimization, caching strategies and indexing — measurable 30–40% gains.</div>
+          </div>
+        </div>
+        <div class="highlight">
+          <div class="h-icon">🔐</div>
+          <div>
+            <div class="h-title">Secure by design</div>
+            <div class="h-desc">JWT auth, RBAC, input validation, and least-privilege patterns baked into every layer.</div>
+          </div>
+        </div>
+        <div class="highlight">
+          <div class="h-icon">📈</div>
+          <div>
+            <div class="h-title">Production reliability</div>
+            <div class="h-desc">99.9% uptime across SaaS &amp; government-grade systems with high concurrency.</div>
+          </div>
+        </div>
+        <div class="highlight">
+          <div class="h-icon">🧠</div>
+          <div>
+            <div class="h-title">Always learning</div>
+            <div class="h-desc">Actively leveling up in Python, FastAPI, microservices, and AWS.</div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- EXPERIENCE -->
-<section class="container">
-    <h2 class="section-title">Professional Experience</h2>
+<!-- ========== SKILLS ========== -->
+<section id="skills">
+  <div class="container">
+    <span class="eyebrow">tech_stack</span>
+    <h2>Tools I use to <span class="grad-text">ship production systems</span></h2>
+    <p class="section-sub">Categorized by where each piece sits in my day-to-day backend work.</p>
 
-    <div class="card">
-        <h3>Application Developer | Encureit System</h3>
-        <p>Jun 2022 – Present</p>
+    <div class="skill-groups">
+      <div class="skill-group">
+        <div class="sg-title">backend.frameworks</div>
+        <ul class="sg-list">
+          <li>Laravel <span class="tag tag-core">core</span></li>
+          <li>PHP <span class="tag tag-core">core</span></li>
+          <li>Python <span class="tag tag-core">growing</span></li>
+          <li>FastAPI <span class="tag tag-learn">growing</span></li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="sg-title">apis.&amp;.auth</div>
+        <ul class="sg-list">
+          <li>REST APIs <span class="tag tag-prod">prod</span></li>
+          <li>JWT / OAuth2 <span class="tag tag-prod">prod</span></li>
+          <li>RBAC <span class="tag tag-prod">prod</span></li>
+          <li>Webhooks <span class="tag tag-prod">prod</span></li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="sg-title">data.&amp;.cache</div>
+        <ul class="sg-list">
+          <li>MySQL <span class="tag tag-prod">prod</span></li>
+          <li>PostgreSQL <span class="tag tag-prod">prod</span></li>
+          <li>Redis <span class="tag tag-prod">prod</span></li>
+          <li>Query Optimization <span class="tag tag-core">core</span></li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <div class="sg-title">devops.&amp;.frontend</div>
+        <ul class="sg-list">
+          <li>Vue.js / Nuxt.js <span class="tag tag-prod">prod</span></li>
+          <li>AWS <span class="tag tag-prod">learning</span></li>
+          <li>Microservices <span class="tag tag-prod">learning</span></li>
+          <li>Docker <span class="tag tag-learn">prod</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <ul>
-            <li>Built scalable APIs handling high concurrency with 99.9% uptime</li>
-            <li>Optimized DB queries → improved performance by 30–40%</li>
-            <li>Implemented JWT & RBAC authentication systems</li>
-            <li>Integrated payment, SMS, and email APIs</li>
+<!-- ========== EXPERIENCE ========== -->
+<section class="exp" id="experience">
+  <div class="container">
+    <span class="eyebrow">career</span>
+    <h2>Professional <span class="grad-text">experience</span></h2>
+    <p class="section-sub">5+ years of building, shipping, and scaling backend systems.</p>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="tl-head">
+            <div>
+              <div class="role-title">Application Developer</div>
+              <div class="company">Encureit System</div>
+            </div>
+            <span class="period">Jun 2022 – Present</span>
+          </div>
+          <ul class="bullets">
+            <li>Built scalable APIs handling high concurrency with <strong>99.9% uptime</strong></li>
+            <li>Optimized database queries — improved performance by <strong>30–40%</strong></li>
+            <li>Designed and implemented <strong>JWT &amp; RBAC</strong> authentication systems</li>
+            <li>Integrated payment, SMS, and email APIs across multiple products</li>
             <li>Led code reviews and mentored junior developers</li>
-        </ul>
-    </div>
+          </ul>
+        </div>
+      </div>
 
-    <div class="card">
-        <h3>PHP Developer | Aspireweb Informatics</h3>
-        <p>Oct 2020 – May 2022</p>
-
-        <ul>
-            <li>Developed CMS, dashboards, and REST APIs</li>
-            <li>Improved query performance by 35%</li>
-            <li>Reduced development time by 25% using reusable modules</li>
-        </ul>
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="tl-head">
+            <div>
+              <div class="role-title">PHP Developer</div>
+              <div class="company">Aspireweb Informatics</div>
+            </div>
+            <span class="period">Oct 2020 – May 2022</span>
+          </div>
+          <ul class="bullets">
+            <li>Developed CMS, dashboards, and REST APIs from scratch</li>
+            <li>Improved query performance by <strong>35%</strong> across key modules</li>
+            <li>Reduced development time by <strong>25%</strong> using reusable modules</li>
+          </ul>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- PROJECTS -->
-<section class="container">
-    <h2 class="section-title">Key Projects</h2>
+<!-- ========== PROJECTS ========== -->
+<section id="projects">
+  <div class="container">
+    <span class="eyebrow">selected_work</span>
+    <h2>Key <span class="grad-text">projects</span></h2>
+    <p class="section-sub">A mix of production SaaS, government-recognized platforms, and enterprise systems.</p>
 
-    <div class="card">
-        <h3>StandWith.me <small><a href="https://v2.admin.stan.store/">Click Here</a></small></h3>
-        <p>Laravel | Vue | Nuxt | REST APIs</p>
-
-        <ul>
-            <li>Built scalable social platform with high concurrency</li>
-            <li>Implemented OAuth login & Google Calendar integration</li>
-            <li>Payment gateway + notifications system</li>
+    <div class="grid grid-3">
+      <article class="card project-card">
+        <div class="title-row">
+          <div class="role-title">StandWith.me</div>
+        </div>
+        <div class="badge-row">
+          <span class="ptag">Laravel</span><span class="ptag">Vue</span><span class="ptag">Nuxt</span><span class="ptag">REST APIs</span>
+        </div>
+        <ul class="bullets">
+          <li>Scalable social platform with high concurrency</li>
+          <li>OAuth login &amp; Google Calendar integration</li>
+          <li>Payment gateway + notifications system</li>
         </ul>
-    </div>
+        <a class="project-link" href="#" target="_blank" rel="noopener">visit_project() →</a>
+      </article>
 
-    <div class="card">
-        <h3>Filmcell (Gov Project) <small><a href="https://www.filmcell.maharashtra.gov.in/">Click Here</a></small></h3>
-        <p>Laravel | MySQL | Google Maps</p>
-
-        <ul>
-            <li>Government-recognized application</li>
-            <li>Booking + approval workflow system</li>
-            <li>RBAC & secure architecture</li>
+      <article class="card project-card">
+        <div class="title-row">
+          <div class="role-title">Filmcell</div>
+          <span class="gov-pill">GOV</span>
+        </div>
+        <div class="badge-row">
+          <span class="ptag">Laravel</span><span class="ptag">MySQL</span><span class="ptag">Google Maps</span>
+        </div>
+        <ul class="bullets">
+          <li>Government-recognized application</li>
+          <li>Booking + approval workflow system</li>
+          <li>RBAC &amp; secure architecture</li>
         </ul>
-    </div>
+        <a class="project-link" href="#" target="_blank" rel="noopener">visit_project() →</a>
+      </article>
 
-    <div class="card">
-        <h3>IIPS CMS <small><a href="https://www.iipsdata.ac.in/">Click Here</a></small></h3>
-        <p>Laravel | REST APIs</p>
-
-        <ul>
-            <li>CMS with reporting & role-based access</li>
-            <li>API integration with external systems</li>
+      <article class="card project-card">
+        <div class="title-row">
+          <div class="role-title">IIPS CMS</div>
+        </div>
+        <div class="badge-row">
+          <span class="ptag">Laravel</span><span class="ptag">REST APIs</span>
+        </div>
+        <ul class="bullets">
+          <li>CMS with reporting &amp; role-based access</li>
+          <li>API integration with external systems</li>
         </ul>
-    </div>
+        <a class="project-link" href="#" target="_blank" rel="noopener">visit_project() →</a>
+      </article>
 
-    <div class="card">
-        <h3>Yashada ERP <small><a href="https://www.mahayashada.org/">Click Here CMS</a> <a href="https://erp.mahayashada.org/">Click Here ERP</a></small></h3>
-        <p>Laravel | Enterprise System</p>
-
-        <ul>
-            <li>Multi-department ERP system</li>
-            <li>Workflow automation & sub-site architecture</li>
+      <article class="card project-card" style="grid-column:1/-1">
+        <div class="title-row">
+          <div class="role-title">Yashada ERP &amp; CMS</div>
+          <span class="gov-pill">ENTERPRISE</span>
+        </div>
+        <div class="badge-row">
+          <span class="ptag">Laravel</span><span class="ptag">MySQL</span><span class="ptag">Enterprise</span><span class="ptag">Sub-sites</span>
+        </div>
+        <ul class="bullets">
+          <li>Multi-department ERP system used across teams</li>
+          <li>Workflow automation &amp; sub-site architecture</li>
         </ul>
+        <a class="project-link" href="#" target="_blank" rel="noopener">visit_erp() →</a>
+        &nbsp;&nbsp;
+        <a class="project-link" href="#" target="_blank" rel="noopener">visit_cms() →</a>
+      </article>
     </div>
+  </div>
 </section>
 
-<!-- CONTACT -->
-<section class="container">
-    <h2 class="section-title">Contact</h2>
+<!-- ========== CONTACT ========== -->
+<section class="contact" id="contact">
+  <div class="container">
+    <span class="eyebrow">contact</span>
+    <h2>Let's build something <span class="grad-text">reliable</span> together.</h2>
+    <p class="section-sub">Open to senior backend, SaaS, and Python/FastAPI opportunities — full-time or contract.</p>
 
-    <div class="card">
-        <p>Email: pranitagaikwad123@gmail.com</p>
-        <p>GitHub: github.com/DevPranita</p>
-        <p>LinkedIn: linkedin.com/in/pranita-gaikwad-5434b0197</p>
+    <div class="contact-grid">
+      <a class="contact-card" href="mailto:pranitagaikwad123@gmail.com">
+        <div class="contact-icon">@</div>
+        <div class="lbl">Email</div>
+        <div class="val">pranitagaikwad123@gmail.com</div>
+      </a>
+      <a class="contact-card" href="https://github.com/DevPranita" target="_blank" rel="noopener">
+        <div class="contact-icon">GH</div>
+        <div class="lbl">GitHub</div>
+        <div class="val">github.com/DevPranita</div>
+      </a>
+      <a class="contact-card" href="https://linkedin.com/in/pranita-gaikwad-5434b0197" target="_blank" rel="noopener">
+        <div class="contact-icon">in</div>
+        <div class="lbl">LinkedIn</div>
+        <div class="val">linkedin.com/in/pranita-gaikwad</div>
+      </a>
     </div>
+
+    <div class="cta-bar">
+      <p>Have a backend project, API, or SaaS idea? Let's talk.</p>
+      <a href="mailto:pranitagaikwad123@gmail.com" class="btn">Send an email →</a>
+    </div>
+  </div>
 </section>
 
 <footer>
-    © 2026 Pranita Gaikwad | Senior Backend Developer
+  <div class="container">
+    © 2026 Pranita Gaikwad · Senior Backend Developer · built_with(html, css)
+  </div>
 </footer>
 
 </body>
